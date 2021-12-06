@@ -1,0 +1,20 @@
+{
+  "name": "watani-mall-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalhamad95/Watani-Mall-Task---Amal-Hamad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amalhamad95/Watani-Mall-Task---Amal-Hamad/issues"
+  },
+  "homepage": "https://github.com/amalhamad95/Watani-Mall-Task---Amal-Hamad#readme"
+}
