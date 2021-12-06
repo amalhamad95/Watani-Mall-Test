@@ -167,4 +167,41 @@ context('WataniMall Cart Senario', () => {
 
     })
 
+    context(`"${cartPage}" Page`, () => {
+
+        it(`Verify MiniCart show correct added items`, () => {
+            cy.fixture('products')
+                .then((products) => {
+                    for (let i = 0; i < products.length; i++) {
+                        let product = products[i]
+                        cy.get('.cart-item:nth-child(' + (i + 1) + ')').as('productItem')
+
+                        cy.get('@productItem')
+                            .find('.product-name').invoke('text')
+                            .should('contain', product.name)
+                        // .contains(product.name)
+                    }
+                })
+        })
+
+        it(`Verify Cart Total price is correct`, () => {
+            cy.get('div.cart-sub-total bdi')
+                .should('have.text', '₪3,310.00')
+        })
+
+        it(`Verify deleting first cart item`, () => {
+            cy.get(':nth-child(1) > .cart-remove').click()
+        })
+
+        it(`Verify Cart Total price is change after delete item`, () => {
+            cy.get('.sub-total-amount')
+                .should('have.text', '2340')
+        })
+
+
+    })
+
+
+
+
 })
