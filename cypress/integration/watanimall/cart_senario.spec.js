@@ -82,6 +82,88 @@ context('WataniMall Cart Senario', () => {
             })
         })
 
+        describe(`Adding Items to Cart`, () => {
+
+            describe(`Adding "${firstProduct}" to Cart`, () => {
+
+                // it(`Verify product data`, () => {
+
+                //     // cy.get('div.products-row.facetwp-template > div:nth-child(1) a.btn-add-cart')
+                //     //     .click({ force: true })
+
+                //     cy.get('.product-item')
+                //         .contains(firstProduct)
+                //         .closest('div')
+                //         .then((product) => {
+                //             expect(product).to.contain(firstProduct)
+                //             expect(product).to.contain('940.00')
+                //             // cy.wrap(product)
+                //             //     .find('.product-name')
+                //             //     .should('contain', firstProduct)
+
+                //             // cy.wrap(product)
+                //             //     .find('.product-price')
+                //             //     .should('contain', '940.00')
+                //         })
+                // })
+
+
+                it(`Verify clicking on "Add to the cart" button`, () => {
+                    cy.get('.product-item')
+                        .contains(firstProduct)
+                        .closest('div')
+                        // .trigger('mouseover')
+                        .find('a.btn-add-cart')
+                        .click({ force: true })
+                })
+
+
+                it(`Verify Cart items count increased`, () => {
+                    cy.get('.btn-cart span.counter')
+                        .should('have.text', '1')
+                })
+
+            })
+
+
+            describe(`Adding "${secondProduct}" to Cart`, () => {
+
+                it(`Verify clicking on Product`, () => {
+                    cy.get('.product-item')
+                        .contains(secondProduct)
+                        .closest('div')
+                        .click()
+                    // cy.get('div.products-row.facetwp-template > div:nth-child(2)').click()
+                })
+
+                // it(`Verify loading "${productDetailsPage}" page`, () => {
+                //     cy.url().should('include',
+                //      secondProduct.toLowerCase().replace(' ', '-'))
+                // })
+
+                it(`Verify Page show correct product details`, () => {
+                    cy.get('.product_title').should('have.text', secondProduct.replace('"',"″"))
+                    cy.get('.summary > .product-price > .woocommerce-Price-amount > bdi').should('have.text', '₪1,170.00')
+                })
+
+
+                it(`Verify clicking on "+" amount button`, () => {
+                    cy.get('.single-product-detail .jcf-btn-inc').click()
+                    // cy.get('[id*="quantity"]').should('have.text', '2')
+                })
+
+                it(`Verify clicking on "Add to Cart" button`, () => {
+                    cy.get('.single_add_to_cart_button').click()
+                    // cy.get('[id*="quantity"]').should('have.text', '2')
+                })
+
+                it(`Verify Cart items count increased`, () => {
+                    cy.get('.btn-cart span.counter')
+                        .should('have.text', '3')
+                })
+            })
+
+        })
 
     })
 
