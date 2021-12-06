@@ -45,6 +45,44 @@ context('WataniMall Cart Senario', () => {
             })
         })
 
+        describe(`Open "${monitorsPage}" Page`, () => {
+            it(`Verify clicking on "${monitorsPage}" sub category item`, () => {
+                cy.get('span.category-name').contains(monitorsPage).click()
+            })
+
+            it(`Verify loading "${monitorsPage}" page`, () => {
+                verifyPageUrlAndTitle(monitors_url, monitorsPage)
+            })
+
+            it('Verify checking "ASUS" in "Manufacturer" list', () => {
+                cy.get('[data-name="manufacturer"] [data-value="asus"]')
+                    .should('not.have.class', 'checked')
+                    .click()
+                    .should('have.class', 'checked')
+
+                cy.get('.product-item')
+                    .should('have.length', 13)
+            })
+
+            it(`Verify open OrderBy list`, () => {
+                cy.get('span.jcf-select-orderby')
+                    .click()
+                    .should('have.class', 'jcf-drop-active')
+            })
+
+            it(`Verify selecting "${orderByPriceDec}" form OrderBy list`, () => {
+                cy.get('.jcf-list-content ul li')
+                    .contains(orderByPriceDec)
+                    .click()
+
+                cy.get('span.jcf-select-text')
+                    .should('have.text', orderByPriceDec)
+
+                verifyPageUrlAndTitle(monitors_filter_url, monitorsPage)
+            })
+        })
+
+
     })
 
 })
