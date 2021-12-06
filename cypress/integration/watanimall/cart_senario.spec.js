@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import { all_categories_url, cartPage, categoriesPage, firstProduct, monitorsPage, monitors_filter_url, monitors_url, orderByPriceDec, productDetailsPage, secondProduct, watanimall_baseurl } from "./app/app_constants"
-import { verifyCheckBoxField, verifyPageUrlAndTitle, verifySelectListItem } from "./app/methods"
+import { verifyPageUrlAndTitle } from "./app/methods"
 
 context('WataniMall Cart Senario', () => {
 
@@ -142,7 +142,7 @@ context('WataniMall Cart Senario', () => {
                 // })
 
                 it(`Verify Page show correct product details`, () => {
-                    cy.get('.product_title').should('have.text', secondProduct.replace('"',"″"))
+                    cy.get('.product_title').should('have.text', secondProduct.replace('"', "″"))
                     cy.get('.summary > .product-price > .woocommerce-Price-amount > bdi').should('have.text', '₪1,170.00')
                 })
 
@@ -171,15 +171,23 @@ context('WataniMall Cart Senario', () => {
 
         it(`Verify MiniCart show correct added items`, () => {
             cy.fixture('products')
-                .then((products) => {
+                .then(function (products) {
                     for (let i = 0; i < products.length; i++) {
                         let product = products[i]
                         cy.get('.cart-item:nth-child(' + (i + 1) + ')').as('productItem')
 
-                        cy.get('@productItem')
-                            .find('.product-name').invoke('text')
-                            .should('contain', product.name)
+                        // cy.get('@productItem')
+                        //     .find('.product-name').invoke('text')
+                        //     .should('contain', (product.name))
                         // .contains(product.name)
+
+                        cy.get('@productItem')
+                            .find('bdi')
+                            .should('contain', product.price)
+
+                        cy.get('@productItem')
+                            .find('[id*="qty"]')
+                            .should('have.attr', 'value', product.qty)
                     }
                 })
         })
@@ -197,11 +205,5 @@ context('WataniMall Cart Senario', () => {
             cy.get('.sub-total-amount')
                 .should('have.text', '2340')
         })
-
-
     })
-
-
-
-
 })
