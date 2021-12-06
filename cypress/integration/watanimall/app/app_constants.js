@@ -1,30 +1,22 @@
 
 //*************API*************// 
-export const watanimall_baseurl = "https://watanimall.com"
-export const login_url = nopcommerce_baseurl + "/login"
-export const dashboard_url = nopcommerce_baseurl + "/admin/"
-//category
-export const category_url = nopcommerce_baseurl + "/Category/List"
-export const create_category_url = nopcommerce_baseurl + "/Category/Create"
-export const add_category_url = nopcommerce_baseurl + "/Category/Create"
-//manufacturer
-export const manufacturer_url="/Manufacturer/List"
-export const create_manufacturer_url="/Manufacturer/Create"
-
+export const watanimall_baseurl = "https://watanimall.com/"
+export const login_url = watanimall_baseurl + "login"
+export const all_categories_url = watanimall_baseurl + "all-categories"
+export const monitors_url = watanimall_baseurl + "product-category/monitors"
+export const monitors_filter_url = watanimall_baseurl + "product-category/monitors?orderby=price&_manufacturer=asus"
 
 //*************Pages*************// 
 export const loginPage = "Login Page"
 export const dashboaredPage = "Dashboard Page"
-export const categoriesPage = "Categories Page"
-export const addNewCategoryPage = "Add New Category Page"
-export const manufacturersPage = "Manufacturers Page"
-export const addNewManufacturerPage = "Add New Manufacturer Page"
-export const tagsPage = "Products Tags Page"
-export const productsPage = "Products Page"
-export const addNewProductPage = "Add New Product Page"
+export const categoriesPage = "جميع الفئات"
+export const monitorsPage = "MONITORS"
+export const productDetailsPage = "Product Details"
+export const cartPage = "Mini Cart"
+
 
 //*************Data*************// 
-export const categoryName = "Gaming Laptops"
-export const manufacturerName = "HPH"
-export const productName = "Original GS9 Gaming Laptop"
-export const tagName = "test_tag"
+export const firstProduct = 'MONITOR ASUS TUF GAMING VG249Q1R 24" IPS 165HZ'
+export const secondProduct = 'MONITOR ASUS TUF VG24VQ 24" CURVED VA 144HZ'
+export const orderByPriceDec = "ترتيب حسب: الأدنى سعراً للأعلى"
+

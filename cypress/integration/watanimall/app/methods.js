@@ -1,22 +1,22 @@
 
 export function verifyPageUrlAndTitle(url, title) {
     cy.log('Check page url')
-    cy.url().should('include', Cypress.env(url))
+    cy.url().should('include', url)
     cy.log('Check page title')
-    cy.get('.float-left').contains(title).should('be.visible')
+    cy.get('[class$="container"] h1').contains(title).should('be.visible')
 }
 
 export function verifyButtonClick(selector) {
     cy.get(selector)
-        .should('be.visible')
-        .and('be.enabled')
+        // .should('be.visible')
+        // .and('be.enabled')
         .click()
 }
 
 export function verifyTextInputField(selector, textValue) {
     cy.get(selector)
-        .should('be.visible')
-        .and('be.enabled')
+        // .should('be.visible')
+        // .and('be.enabled')
         .clear()
         .should('have.value', '')
         .type(textValue)
@@ -39,19 +39,19 @@ export function verifyIframe(selector, body) {
 
 export function verifyCheckBoxField(selector) {
     cy.get(selector)
-        .should('be.visible')
-        .and('be.enabled')
-        .uncheck()
-        .should('not.be.checked')
+        // .should('be.visible')
+        // .and('be.enabled')
+        // .uncheck()
+        // .should('not.be.checked')
         .check()
         .should('be.checked')
 }
 
 export function verifySelectListItem(selector, selectedItemText, selectedItemValue) {
     cy.get(selector)
-        .should('be.visible')
-        .and('be.enabled')
-        .select(selectedItemText)
+        // .should('be.visible')
+        // .and('be.enabled')
+        .select(selectedItemText, { force: true })
         .should('have.value', selectedItemValue)
 }
 
