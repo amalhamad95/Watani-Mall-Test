@@ -71,15 +71,31 @@ context('WataniMall Cart Senario', () => {
             })
 
             it(`Verify selecting "${orderByPriceDec}" form OrderBy list`, () => {
+                let url = 'https://watanimall.com/product-category/monitors?orderby=price&_manufacturer=asus';
+                cy.intercept('POST', url).as('asusRequest');
+
                 cy.get('.jcf-list-content ul li')
                     .contains(orderByPriceDec)
                     .click()
 
+                cy.wait('@asusRequest');
+            })
+
+            it(`Verify "${orderByPriceDec}" and "ASUS" is selected`, () => {
                 cy.get('span.jcf-select-text')
                     .should('have.text', orderByPriceDec)
 
                 verifyPageUrlAndTitle(monitors_filter_url, monitorsPage)
             })
+
+            it('Verify product list is sorted correctly', function () {
+                //Made By Waleed
+                cy.get('div.products-row div.product-col div.product-price').children().not('del').find('bdi').then(ele => {
+                    const unsortedItems = ele.map((index, el) => Cypress.$(el).text().substr(1).trim().replace(/,/g, '')).get();
+                    const sortedItems = unsortedItems.slice().sort((a, b) => parseFloat(a) - parseFloat(b));
+                    expect(sortedItems, 'Items are sorted').to.deep.equal(unsortedItems);
+                });
+            });
         })
 
         describe(`Adding Items to Cart`, () => {
@@ -194,7 +210,7 @@ context('WataniMall Cart Senario', () => {
 
         it(`Verify Cart Total price is correct`, () => {
             cy.get('div.cart-sub-total bdi')
-                .should('have.text', '₪3,310.00')
+                .should('have.text', '₪3,210.00')
         })
 
         it(`Verify deleting first cart item`, () => {

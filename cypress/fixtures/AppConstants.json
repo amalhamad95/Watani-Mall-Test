@@ -1,0 +1,20 @@
+{
+
+ "watanimall_baseurl": "https://watanimall.com/",
+ "login_url" :  "login",
+ "all_categories_url" :  "all-categories",
+ "monitors_url" :  "product-category/monitors",
+ "monitors_filter_url" :  "product-category/monitors?orderby:price&_manufacturer:asus",
+
+ "loginPage" : "Login Page",
+ "dashboaredPage" : "Dashboard Page",
+ "categoriesPage" : "جميع الفئات",
+ "monitorsPage" : "MONITORS",
+ "productDetailsPage" : "Product Details",
+ "cartPage" : "Mini Cart",
+
+ "firstProduct" : "MONITOR ASUS TUF GAMING VG249Q1R 24\" IPS 165HZ",
+ "secondProduct" : "MONITOR ASUS TUF VG24VQ 24\" CURVED VA 144HZ",
+ "orderByPriceDec" : "ترتيب حسب: الأدنى سعراً للأعلى"
+
+}

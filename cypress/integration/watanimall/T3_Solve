@@ -1,0 +1,57 @@
+Visit site =>
+    Verify current URL, verify the cart counter = 0
+Click on all categories => 
+    Verify the nav-item design
+    Verify current URL
+    Verify page heading.
+Click on Monitors => 
+    Verify current URL
+    Verify category tile on-active design
+    Verify the breadcrumb
+    Verify page title
+    Verify the default sort option
+Check Asus filter => 
+    Verify the filter is checked
+    Verify the resulted products count
+    Verify the URL
+    Verify the filters are updated
+Select sort type =>
+    Verify the selected option is checked
+    Verify the products are sorted successfully
+    Verify current URL
+    Verify if the selected sort option reflected in the sort by area
+    Verify the pagination
+Hover on first product =>
+    Verify The buttons should be displayed.
+Click on 'add to cart' button =>
+    Verify the mini cart is displayed
+    Verify the product title, price, and quantity in the cart
+    Verify the cart total
+    Verify the cart counter.
+Collapse mini cart =>
+    Verify the mini cart is hidden.
+Click on the second product =>
+    Verify current link
+    Verify the breadcrumb
+    Verify product title
+    Verify manufacturer
+    Verify price
+=> Verify the minus icon is disabled by default.
+=> Verify the '+' icon will be dislabed when entering the max available quantity.
+Click on '+' icon =>
+    Verify the quantity value is increased by 1.
+Click on Add to cart button =>
+    Verify the mini cart is visible
+    Verify the minicart counter is increased
+    Verify the product title, price, and quantity in mini cart
+    Verify the total price.
+Click on 'Remove' for first element =>
+    Verify the current cart length
+    Verify the item is not available in the cart
+    Verify the order total
+    Verify the current cart counter
+    Verify the screen out of mini cart is blured
+    Verify the loader is displayed.
+Collapse the mini cart =>
+    Verify the mini cart is hidden.
+Close browser

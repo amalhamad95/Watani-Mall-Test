@@ -8,7 +8,7 @@ export const monitors_filter_url = watanimall_baseurl + "product-category/monito
 
 //*************Pages*************// 
 export const loginPage = "Login Page"
-export const dashboaredPage = "Dashboard Page"
+export const homePage = "ألرئيسية"
 export const categoriesPage = "جميع الفئات"
 export const monitorsPage = "MONITORS"
 export const productDetailsPage = "Product Details"
