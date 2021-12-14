@@ -19,7 +19,9 @@ export class MonitorsActions {
     }
 
     selectOrderByPriceDecFilter() {
-        this.items.getOrderByPriceDecFilter().click()
+        this.items.getOrderByPriceDecFilter()
+            .select('price', { force: true }).should('have.value', 'price')
+        // .click()
     }
 
     interceptOrderByRequest() {

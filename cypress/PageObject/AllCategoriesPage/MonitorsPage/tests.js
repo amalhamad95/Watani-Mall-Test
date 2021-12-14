@@ -1,4 +1,4 @@
-import { monitorsPage, monitors_url } from "../../../integration/watanimall/app/app_constants"
+import { monitorsPage, monitors_url, orderByPriceDec } from "../../../integration/watanimall/app/app_constants"
 import { MonitorsItems } from "./items"
 
 export class MonitorsTests {
@@ -23,14 +23,21 @@ export class MonitorsTests {
 
     checkOrderByListOpened() {
         this.items.getOrderByList()
-            .click()
             .should('have.class', 'jcf-drop-active')
     }
 
     checkOrderByPriceDecSelected() {
         this.items.getOrderByText()
             .should('have.text', orderByPriceDec)
+    }
 
+    checkProductsListSortedByFilters() {
+        this.items.getProductsPriceList()
+            .then(ele => {
+                const unsortedItems = ele.map((index, el) => Cypress.$(el).text().substr(1).trim().replace(/,/g, '')).get();
+                const sortedItems = unsortedItems.slice().sort((a, b) => parseFloat(a) - parseFloat(b));
+                expect(sortedItems, 'Items are sorted').to.deep.equal(unsortedItems);
+            });
     }
 
 }

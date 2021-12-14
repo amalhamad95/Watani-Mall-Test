@@ -1,4 +1,4 @@
-import { orderByPriceDec } from "../../../integration/watanimall/app/app_constants"
+import { monitorsPage, orderByPriceDec } from "../../../integration/watanimall/app/app_constants"
 
 export class MonitorsItems {
     constructor() { }
@@ -16,12 +16,13 @@ export class MonitorsItems {
     }
 
     getOrderByPriceDecFilter() {
-        return cy.get('.jcf-list-content ul li')
-            .contains(orderByPriceDec)
+        return cy.get("select[name='orderby']")
+        // return cy.get('.jcf-list-content ul li')
+            // .contains(orderByPriceDec)
     }
 
     getOrderByText() {
-        return cy.get('.jcf-list-content ul li')
+        return cy.get('.jcf-select-text > span')
     }
 
     getAllProducts() {
@@ -34,6 +35,10 @@ export class MonitorsItems {
 
     getSecondProduct() {
         return cy.get('span.category-name').contains(monitorsPage)
+    }
+
+    getProductsPriceList(){
+        return cy.get('div.products-row div.product-col div.product-price').children().not('del').find('bdi')
     }
 
 }
