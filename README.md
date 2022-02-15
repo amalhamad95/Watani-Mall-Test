@@ -1,4 +1,4 @@
-# Watani-Mall-Task---Amal-Hamad
+# Watani-Mall-Test
 
 ![Cypress.io](https://miro.medium.com/max/7200/1*Jkb_tsMBOvL6wQ8bzldu8Q.png)
 
@@ -13,7 +13,7 @@ using Cypress
   
 ### How to start using this script
 ```javascript
-git clone https://github.com/amalhamad95/Watani-Mall-Task---Amal-Hamad.git
+git clone https://github.com/amalhamad95/Watani-Mall-Test.git
 
 // Once it finish open it using terminal and do
 npm install
